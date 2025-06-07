@@ -41,6 +41,11 @@ const startServer = async () => {
     console.log("Connected to MySQL database.");
   });
 
+  app.get('/', (req, res) => {
+  res.send('Hello! This is the root route.');
+  });
+
+
   readdirSync("./routes").map((route) => {
     app.use("/api", require("./routes/" + route));
 
